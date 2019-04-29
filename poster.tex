@@ -1,0 +1,36 @@
+\documentclass[a0paper, landscape]{tikzposter}
+
+\title{%
+  FrankenPaxos: Understanding and Exploiting Trade-offs in State Machine
+  Replication Protocols
+}
+\author{%
+  Neil Giridharan, %
+  Michael Whittaker %
+}
+
+\usepackage{booktabs}
+\usepackage{colortbl}
+\usepackage{pervasives}
+\usepackage{riseposter}
+\usetikzlibrary{snakes}
+
+\begin{document}
+\maketitle
+
+\begin{columns}
+\column{0.33333}
+\block{Motivation}{\input{sections/motivation.tex}}
+\block{Macro Trade-Offs}{\input{sections/macro_tradeoffs.tex}}
+\block{Micro Trade-Offs}{\input{sections/micro_tradeoffs.tex}}
+
+\column{0.33333}
+\block{Existing Protocols}{\input{sections/existing_protocols.tex}}
+\block{FrankenPaxos}{\input{sections/frankenpaxos.tex}}
+
+\column{0.33333}
+\block{EPaxos Results}{\input{sections/epaxos_results.tex}}
+\block{Paxi Results}{\input{sections/paxi_results.tex}}
+\block{FrankenPaxos Results}{\input{sections/frankenpaxos_results.tex}}
+\end{columns}
+\end{document}
