@@ -1,1 +1,31 @@
-% existing_protocols
+\textbf{NL}: Normal Case Leader \\
+\textbf{G}: Generalized \\
+\textbf{CL}: Conflict Leader \\
+\textbf{OCL}: Optimal Commit Latency
+
+\newcommand{\yes}{yes}
+\newcommand{\no}{no}
+\newcommand{\na}{N/A}
+
+\begin{center}
+  \begin{tabular}{p{2.5in}ccccp{7.5in}}
+    \toprule
+    \textbf{Protocol}            & \textbf{NL} & \textbf{G} & \textbf{CL} & \textbf{OCL} & \textbf{Other}                                         \\ \midrule
+    MultiPaxos                   & \yes        & \no        & \na         & \no          &                                                        \\ \rowcolor{flatgray!30}
+    VRR                          & \yes        & \no        & \na         & \no          & Explicit leaders in protocol                           \\
+    Raft                         & \yes        & \no        & \na         & \no          & Explicit leaders in protocol                           \\ \rowcolor{flatgray!30}
+    Flexible \newline MultiPaxos & \yes        & \no        & \na         & \no          & Flexible quorums                                       \\
+    SpecPaxos                    & \yes        & \no        & \na         & \no          & Speculative execution                                  \\ \rowcolor{flatgray!30}
+    S-Paxos                      & \yes        & \no        & \na         & \no          & Separates control flow from data flow                  \\
+    CASPaxos                     & \yes        & \no        & \na         & \no          & Linearizable register instead of log                   \\ \rowcolor{flatgray!30}
+    Fast \newline MultiPaxos     & \no         & \no        & \yes        & \yes         &                                                        \\
+    Generalized \newline Paxos   & \no         & \yes       & \yes        & \yes         &                                                        \\ \rowcolor{flatgray!30}
+    GPaxos                       & \no         & \yes       & \yes        & \yes         & Improves Generalized Paxos' collision recovery latency \\
+    Mencius                      & \no         & \no        & \no         & \no          & Commit requires communication to all replicas          \\ \rowcolor{flatgray!30}
+    EPaxos                       & \no         & \yes       & \no         & \no          & Optimizations for small quorums                        \\
+    BPaxos                       & \no         & \yes       & \no         & \yes         & Suboptimal fast path conditions                        \\ \rowcolor{flatgray!30}
+    Caesar                       & \no         & \yes       & \no         & \yes         & Complicated                                            \\
+    Eve                          & \yes        & \no        & \yes        & \no          & Multi-core, execute then verify                        \\ \rowcolor{flatgray!30}
+    \bottomrule
+  \end{tabular}
+\end{center}
