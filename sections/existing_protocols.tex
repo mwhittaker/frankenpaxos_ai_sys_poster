@@ -10,22 +10,23 @@
 \begin{center}
   \begin{tabular}{p{2.5in}ccccp{7.5in}}
     \toprule
-    \textbf{Protocol}            & \textbf{NL} & \textbf{G} & \textbf{CL} & \textbf{OCL} & \textbf{Other}                                         \\ \midrule
-    MultiPaxos                   & \yes        & \no        & \na         & \no          &                                                        \\ \rowcolor{flatgray!30}
-    VRR                          & \yes        & \no        & \na         & \no          & Explicit leaders in protocol                           \\
-    Raft                         & \yes        & \no        & \na         & \no          & Explicit leaders in protocol                           \\ \rowcolor{flatgray!30}
-    Flexible \newline MultiPaxos & \yes        & \no        & \na         & \no          & Flexible quorums                                       \\
-    SpecPaxos                    & \yes        & \no        & \na         & \no          & Speculative execution                                  \\ \rowcolor{flatgray!30}
-    S-Paxos                      & \yes        & \no        & \na         & \no          & Separates control flow from data flow                  \\
-    CASPaxos                     & \yes        & \no        & \na         & \no          & Linearizable register instead of log                   \\ \rowcolor{flatgray!30}
-    Fast \newline MultiPaxos     & \no         & \no        & \yes        & \yes         &                                                        \\
-    Generalized \newline Paxos   & \no         & \yes       & \yes        & \yes         &                                                        \\ \rowcolor{flatgray!30}
-    GPaxos                       & \no         & \yes       & \yes        & \yes         & Improves Generalized Paxos' collision recovery latency \\
-    Mencius                      & \no         & \no        & \no         & \no          & Commit requires communication to all replicas          \\ \rowcolor{flatgray!30}
-    EPaxos                       & \no         & \yes       & \no         & \no          & Optimizations for small quorums                        \\
-    BPaxos                       & \no         & \yes       & \no         & \yes         & Suboptimal fast path conditions                        \\ \rowcolor{flatgray!30}
-    Caesar                       & \no         & \yes       & \no         & \yes         & Complicated                                            \\
-    Eve                          & \yes        & \no        & \yes        & \no          & Multi-core, execute then verify                        \\ \rowcolor{flatgray!30}
+    \textbf{Protocol}            & \textbf{NL} & \textbf{G} & \textbf{CL} & \textbf{OCL} & \textbf{Other}                                                       \\ \midrule
+    MultiPaxos                   & \yes        & \no        & \na         & \no          &                                                                      \\ \rowcolor{flatgray!30}
+    VRR                          & \yes        & \no        & \na         & \no          & Explicit leaders in protocol                                         \\
+    Raft                         & \yes        & \no        & \na         & \no          & Explicit leaders in protocol                                         \\ \rowcolor{flatgray!30}
+    Flexible \newline MultiPaxos & \yes        & \no        & \na         & \no          & Flexible quorums                                                     \\
+    DPaxos                       & \yes        & \no        & \na         & \no          & Flexible quorums for deployment in data centers                      \\ \rowcolor{flatgray!30}
+    SpecPaxos                    & \yes        & \no        & \na         & \no          & Speculative execution                                                \\
+    S-Paxos                      & \yes        & \no        & \na         & \no          & Separates control flow from data flow                                \\ \rowcolor{flatgray!30}
+    CASPaxos                     & \yes        & \no        & \na         & \no          & Implements a linearizable register instead of log                    \\
+    Fast \newline MultiPaxos     & \no         & \no        & \yes        & \yes         & First algorithm that achieves optimal commit latency                 \\ \rowcolor{flatgray!30}
+    Generalized \newline Paxos   & \no         & \yes       & \yes        & \yes         & First algorithm to take advantage of commutativity                   \\
+    GPaxos                       & \no         & \yes       & \yes        & \yes         & Improves Generalized Paxos' collision recovery latency               \\ \rowcolor{flatgray!30}
+    Mencius                      & \no         & \no        & \no         & \no          & Load balances leaders; commit requires communication to all replicas \\
+    EPaxos                       & \no         & \yes       & \no         & \no          & Has performance optimizations for small quorums                      \\ \rowcolor{flatgray!30}
+    BPaxos                       & \no         & \yes       & \no         & \yes         & Suboptimal fast path conditions                                      \\
+    Caesar                       & \no         & \yes       & \no         & \yes         & Complex recovery procedure                                           \\ \rowcolor{flatgray!30}
+    Eve                          & \yes        & \no        & \yes        & \no          & Multi-core, execute then verify                                      \\
     \bottomrule
   \end{tabular}
 \end{center}
