@@ -1,0 +1,45 @@
+\tikzstyle{algo}=[inner sep=1pt, align=center]
+\tikzstyle{lineage}=[-latex, thick]
+\tikzstyle{category}=[draw, thick]
+
+\begin{tikzpicture}
+  % \draw[help lines] (-5, -10) grid (5, 0);
+
+  \node[algo] (VRR) at (0, 0) {VRR};
+  \node[algo, below=2pt of VRR] (Raft) {Raft};
+  \node[algo, below=2pt of Raft] (MultiPaxos) {Paxos};
+  \node[algo, below=of MultiPaxos] (FastMultiPaxos) {Fast\\MultiPaxos};
+  \node[algo, below=of FastMultiPaxos] (GenPaxos) {Generalized\\Paxos};
+  \node[algo, below=of GenPaxos] (GPaxos) {GPaxos};
+  \node[algo, below=of GPaxos] (Caesar) {Caesar};
+  \node[algo, left=2cm of GPaxos] (DPaxos) {DPaxos};
+  \node[algo, above=2pt of DPaxos] (FlexiblePaxos) {Flexible Paxos};
+  \node[algo, below=2pt of DPaxos] (VerticalPaxos) {Vertical Paxos};
+  \node[algo, right=1 of GPaxos] (EPaxos) {EPaxos};
+  \node[algo, right=1 of FastMultiPaxos] (Mencius) {Mencius};
+  \node[algo, left=1 of FastMultiPaxos] (SPaxos) {S-Paxos};
+  \node[algo, left=1 of SPaxos] (SpecPaxos) {SpecPaxos};
+
+  \draw[lineage] (MultiPaxos) to (FastMultiPaxos);
+  \draw[lineage] (MultiPaxos) to (Mencius);
+  \draw[lineage] (MultiPaxos) to (SPaxos);
+  \draw[lineage] (VRR) to (SpecPaxos);
+  \draw[lineage] (FastMultiPaxos) to (GenPaxos);
+  \draw[lineage] (GenPaxos) to (GPaxos);
+  \draw[lineage] (GenPaxos) to (EPaxos);
+  \draw[lineage] (Mencius) to (EPaxos);
+  \draw[lineage] (EPaxos) to (Caesar);
+  \draw[lineage] (MultiPaxos) to (FlexiblePaxos);
+  \draw[lineage] (FlexiblePaxos) to (DPaxos);
+
+  \node[category, minimum width=0.5in, minimum height=0.5in]
+    at (Raft.center) {};
+  \node[category, red, minimum width=0.8in, minimum height=2.1in]
+    at ($(FastMultiPaxos.center)!0.5!(Caesar.center)$) {};
+  \node[category, green, minimum width=3in, minimum height=0.5in]
+    at ($(DPaxos.center)!0.45!(EPaxos.center)$) {};
+  \node[category, blue, minimum width=1.8in, minimum height=1.5in]
+    at ($(GPaxos.center)!0.5!(EPaxos.center)$) {};
+
+  % TODO: Need to put box around Mencius, EPaxos, and Caesar.
+\end{tikzpicture}
