@@ -1,0 +1,53 @@
+\documentclass[12pt]{standalone}
+
+\usepackage{pervasives}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+
+\begin{document}
+  \Large
+  \tikzstyle{machine}=[draw, circle, line width=3pt]
+  \tikzstyle{comm}=[-latex, line width=3pt]
+  \begin{minipage}{3in}
+    \centering
+    \textbf{MultiPaxos}
+    \vspace{12pt}
+
+    \begin{tikzpicture}[scale=3]
+      \node[machine] (c) at (0, 0) {$c$};
+      \node[machine] (l) at (1, 1) {$l$};
+      \node[machine] (a0) at (2, 1) {$a_0$};
+      \node[machine] (a1) at (2, 0) {$a_1$};
+      \node[machine] (a2) at (2, -1) {$a_2$};
+
+      \draw[comm, bend left=10, flatred] (c) to (l);
+      \draw[comm, bend left=10, flatgreen] (l) to (a0);
+      \draw[comm, bend left=10, flatgreen] (l) to (a1);
+      \draw[comm, bend left=10, flatblue] (a0) to (l);
+      \draw[comm, bend left=10, flatblue] (a1) to (l);
+      \draw[comm, bend left=10, flatpurple] (l) to (c);
+    \end{tikzpicture}
+  \end{minipage}%
+  \begin{minipage}{3in}
+    \centering
+    \textbf{Fast MultiPaxos}
+    \vspace{12pt}
+
+    \begin{tikzpicture}[scale=3]
+      \node[machine] (c) at (0, 0) {$c$};
+      \node[machine] (l) at (1, 1) {$l$};
+      \node[machine] (a0) at (2, 1) {$a_0$};
+      \node[machine] (a1) at (2, 0) {$a_1$};
+      \node[machine] (a2) at (2, -1) {$a_2$};
+
+      \draw[comm, flatred] (c) to (a0);
+      \draw[comm, flatred] (c) to (a1);
+      \draw[comm, flatred] (c) to (a2);
+      \draw[comm, flatgreen] (a0) to (l);
+      \draw[comm, flatgreen] (a1) to (l);
+      \draw[comm, flatgreen] (a2) to (l);
+      \draw[comm, flatblue] (l) to (c);
+    \end{tikzpicture}
+  \end{minipage}
+\end{document}

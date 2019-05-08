@@ -1,0 +1,44 @@
+\tikzstyle{machine}=[draw, circle, line width=4pt]
+\tikzstyle{comm}=[-latex, line width=4pt]
+
+\begin{minipage}{0.5\linewidth}
+  \centering
+  \textbf{MultiPaxos}
+  \vspace{12pt}
+
+  \begin{tikzpicture}[xscale=6, yscale=4]
+    \node[machine] (c) at (0, 0) {$c$};
+    \node[machine] (l) at (1, 1) {$l$};
+    \node[machine] (a0) at (2, 1) {$a_0$};
+    \node[machine] (a1) at (2, 0) {$a_1$};
+    \node[machine] (a2) at (2, -1) {$a_2$};
+
+    \draw[comm, bend left=10, flatred] (c) to (l);
+    \draw[comm, bend left=10, flatgreen] (l) to (a0);
+    \draw[comm, bend left=10, flatgreen] (l) to (a1);
+    \draw[comm, bend left=10, flatblue] (a0) to (l);
+    \draw[comm, bend left=10, flatblue] (a1) to (l);
+    \draw[comm, bend left=10, flatpurple] (l) to (c);
+  \end{tikzpicture}
+\end{minipage}%
+\begin{minipage}{0.5\linewidth}
+  \centering
+  \textbf{Fast MultiPaxos}
+  \vspace{12pt}
+
+  \begin{tikzpicture}[xscale=6, yscale=4]
+    \node[machine] (c) at (0, 0) {$c$};
+    \node[machine] (l) at (1, 1) {$l$};
+    \node[machine] (a0) at (2, 1) {$a_0$};
+    \node[machine] (a1) at (2, 0) {$a_1$};
+    \node[machine] (a2) at (2, -1) {$a_2$};
+
+    \draw[comm, flatred] (c) to (a0);
+    \draw[comm, flatred] (c) to (a1);
+    \draw[comm, flatred] (c) to (a2);
+    \draw[comm, flatgreen] (a0) to (l);
+    \draw[comm, flatgreen] (a1) to (l);
+    \draw[comm, flatgreen] (a2) to (l);
+    \draw[comm, flatblue] (l) to (c);
+  \end{tikzpicture}
+\end{minipage}
