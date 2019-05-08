@@ -1,16 +1,4 @@
 
-\begin{itemize}
-  \item The authors of EPaxos implemented EPaxos in Go, so we decided to run their implementation and compare
-    what parameters were the most important in their implementation.
-  \item The parameters used were: Conflict Rate, Write Percentage, Thriftiness, EPS, Number of Servers, and
-    Number of Clients
-  \item The Decision Tree predicts EPaxos throughput based on the values of the above parameters
-
-\end{itemize}
-
-\begin{figure}
-    \includegraphics[width=\linewidth]{figures/epaxos_decision_tree.png}
-    \caption{Decision Tree}
-    \label{fig:tree}
-  \end{figure}
-
+\begin{tikzfigure}[EPaxos Decision Tree from Author's Implementation (Throughput in Thousands)]
+\includegraphics[width=0.25\textwidth]{figures/epaxos_decision_tree.png}
+\end{tikzfigure}

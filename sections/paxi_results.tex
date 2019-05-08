@@ -1,9 +1,4 @@
 % paxi_results
-\begin{itemize}
-    \item Paxi is another evaluation framework that compares the performance of various Paxos protocols. It is
-    also written in Go, so we also decided to run their implementations and compare what parameters were the
-    most important in their implementation.
-    \item The parameters used were: Timeout Thresholds, Buffer Size, Number of Servers, Number of Requests,
-    Throttle, Conflict Rate, and Number of Clients
-    \item The Decision Tree predicts EPaxos throughput based on the values of the above parameters
-\end{itemize}
+\begin{tikzfigure}[Paxi Decision Tree for EPaxos in Go]
+\includegraphics[width=0.3\textwidth]{figures/paxi_decision_tree.png}
+\end{tikzfigure}
