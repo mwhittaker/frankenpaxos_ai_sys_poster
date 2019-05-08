@@ -1,7 +1,16 @@
+
 \begin{itemize}
-  \item Short description of code, plus a link.
-  \item Short description of parameters being varied.
-  \item Decision tree.
-  \item Bar chart of column importance.
-  \item Bar chart of lasso weights.
+  \item The authors of EPaxos implemented EPaxos in Go, so we decided to run their implementation and compare
+    what parameters were the most important in their implementation.
+  \item The parameters used were: Conflict Rate, Write Percentage, Thriftiness, EPS, Number of Servers, and
+    Number of Clients
+  \item The Decision Tree predicts EPaxos throughput based on the values of the above parameters
+
 \end{itemize}
+
+\begin{figure}
+    \includegraphics[width=\linewidth]{figures/epaxos_decision_tree.png}
+    \caption{Decision Tree}
+    \label{fig:tree}
+  \end{figure}
+
